@@ -13,7 +13,7 @@ namespace API.Controllers
         [HttpGet("api/sa/test")]
         public string Test()
         {
-            return "Test 123";
+            return "Test 123 456";
         }
     }
 }
