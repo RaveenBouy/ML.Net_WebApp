@@ -9,9 +9,12 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
     public class SentimentAnalysisController : ControllerBase
     {
-
+        [HttpGet]
+        public string Test()
+        {
+            return "Test 123";
+        }
     }
 }
