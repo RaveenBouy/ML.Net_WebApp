@@ -7,11 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class SentimentAnalysisController : ControllerBase
+    public class SentimentAnalysisController : Controller
     {
-        [HttpGet]
+        [HttpGet("api/sa/test")]
         public string Test()
         {
             return "Test 123";

@@ -13,9 +13,9 @@ namespace DataLibrary.DataAccess
             return conString;
         }
 
-        public static List<T> LoadData<T>(string sql)
-        {
+        //public static List<T> LoadData<T>(string sql)
+        //{
 
-        }
+        //}
     }
 }

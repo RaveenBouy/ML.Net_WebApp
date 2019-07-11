@@ -8,13 +8,15 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1-nanoserver-1809 AS build
 WORKDIR /src
+COPY *.sln ./
 COPY ["API/API.csproj", "API/"]
 COPY ["DataLibrary/DataLibrary.csproj", "DataLibrary/"]
 RUN dotnet restore "API/API.csproj"
+
 COPY . .
 WORKDIR "/src/API"
 RUN dotnet build "API.csproj" -c Release -o /app
-
+	
 FROM build AS publish
 RUN dotnet publish "API.csproj" -c Release -o /app
 
