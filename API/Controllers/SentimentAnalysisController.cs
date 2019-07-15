@@ -12,7 +12,7 @@ namespace API.Controllers
     [ApiController]
     public class SentimentAnalysisController : Controller
     {
-        [HttpGet("api/sa/test")]
+        [HttpGet("Api/SentimentAnalysis/Common")]
         public ModelOutput Test([FromQuery] string text)
         {
             return ModelConsumer.GetSentiment(text);
