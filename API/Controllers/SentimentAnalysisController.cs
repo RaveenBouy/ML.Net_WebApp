@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SentimentAnalysis.Classes;
+using SentimentAnalysis.Models;
 
 namespace API.Controllers
 {
@@ -11,9 +13,9 @@ namespace API.Controllers
     public class SentimentAnalysisController : Controller
     {
         [HttpGet("api/sa/test")]
-        public string Test()
+        public ModelOutput Test([FromQuery] string text)
         {
-            return "Test 123 456";
+            return ModelConsumer.GetSentiment(text);
         }
     }
 }
