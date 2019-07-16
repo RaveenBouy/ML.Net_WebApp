@@ -22,7 +22,7 @@ namespace SentimentAnalysis {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resource {
+    internal class Resource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace SentimentAnalysis {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SentimentAnalysis.Resource", typeof(Resource).Assembly);
@@ -51,7 +51,7 @@ namespace SentimentAnalysis {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,12 +61,29 @@ namespace SentimentAnalysis {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to ..\SentimentAnalysis\bin\Debug\netcoreapp2.1\Model_ML.zip.
         /// </summary>
-        public static byte[] Model_ML {
+        internal static string SA_Model_Common {
             get {
-                object obj = ResourceManager.GetObject("Model_ML", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("SA_Model_Common", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SA_Model_Movie {
+            get {
+                return ResourceManager.GetString("SA_Model_Movie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string SA_Model_Shop {
+            get {
+                return ResourceManager.GetString("SA_Model_Shop", resourceCulture);
             }
         }
     }

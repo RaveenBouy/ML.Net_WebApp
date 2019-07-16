@@ -13,9 +13,9 @@ namespace API.Controllers
     public class SentimentAnalysisController : Controller
     {
         [HttpGet("Api/SentimentAnalysis/Common")]
-        public ModelOutput Test([FromQuery] string text)
+        public async Task<ModelOutput> TestAsync([FromQuery] string text)
         {
-            return ModelConsumer.GetSentiment(text);
+            return await ModelConsumer.GetSentimentAsync(text, SentimentList.Common);
         }
     }
 }
