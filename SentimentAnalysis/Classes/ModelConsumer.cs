@@ -17,7 +17,8 @@ namespace SentimentAnalysis.Classes
         public static ModelOutput GetSentiment(string sentiment)
         {
             MLContext mlContext = new MLContext();
-            ITransformer mlModel = mlContext.Model.Load(Path.Combine(Environment.CurrentDirectory, "Model_ML.zip"), out DataViewSchema inputSchema);
+            Stream model = new MemoryStream(Resource.Model_ML);
+            ITransformer mlModel = mlContext.Model.Load(model, out DataViewSchema inputSchema);
             var predEngine = mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);
 
             // Try a single prediction

@@ -1,5 +1,6 @@
 ﻿using SentimentAnalysis.Classes;
 using System;
+using System.IO;
 
 namespace SentimentAnalysis
 {
