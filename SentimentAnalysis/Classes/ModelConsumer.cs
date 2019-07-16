@@ -15,11 +15,12 @@ namespace SentimentAnalysis.Classes
         /// <param name="sentiment"></param>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static async System.Threading.Tasks.Task<ModelOutput> GetSentimentAsync(string sentiment, SentimentList value)
+        public static ModelOutput GetSentiment(string sentiment, SentimentList value)
         {
             MLContext mlContext = new MLContext();
-            Stream modelStream = new MemoryStream(await GetSentimentTypeAsync(value));
+            Stream modelStream = new MemoryStream(Resource.Model_ML_Common);
 
+            // Load the model
             ITransformer mlModel = mlContext.Model.Load(modelStream, out DataViewSchema inputSchema);
             var predEngine = mlContext.Model.CreatePredictionEngine<ModelInput, ModelOutput>(mlModel);
 
@@ -31,6 +32,8 @@ namespace SentimentAnalysis.Classes
 
         private static async System.Threading.Tasks.Task<byte[]> GetSentimentTypeAsync(SentimentList value)
         {
+            FindPath();
+
             switch (value)
             {
                 case SentimentList.Common:
@@ -48,6 +51,29 @@ namespace SentimentAnalysis.Classes
                 default:
                     return null;
             }
+        }
+
+        private static string FindPath()
+        {
+            var wtf = File.Exists(Resource.SA_Model_Common);
+            var domain = AppDomain.CurrentDomain.BaseDirectory.Split(Path.DirectorySeparatorChar);
+            var aaa = Path.GetDirectoryName(Environment.CurrentDirectory);
+
+            var files = Directory.GetFiles(@"/app");
+            var files2 = Directory.GetFiles(@"/bin");
+            string[] filesss = Directory.GetFiles(@"/", "Model_ML_Common.zip", SearchOption.AllDirectories);
+
+
+            StringBuilder path = new StringBuilder();
+
+            for (int i = 0; i < domain.Length - 4; i++)
+            {
+                path.Append($"{domain[i]}/");
+            }
+
+            path.Append(@"Models/Model_ML_Common.zip");
+
+            return path.ToString();
         }
     }
 

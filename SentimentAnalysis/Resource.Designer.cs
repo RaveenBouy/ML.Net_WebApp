@@ -61,6 +61,16 @@ namespace SentimentAnalysis {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Model_ML_Common {
+            get {
+                object obj = ResourceManager.GetObject("Model_ML_Common", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ..\SentimentAnalysis\Models\Model_ML_Common.zip.
         /// </summary>
         internal static string SA_Model_Common {
