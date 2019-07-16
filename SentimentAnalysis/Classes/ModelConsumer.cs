@@ -35,15 +35,15 @@ namespace SentimentAnalysis.Classes
             {
                 case SentimentList.Common:
                     {
-                        return File.Exists(Resource.SA_Model_Common) ? await File.ReadAllBytesAsync(Resource.SA_Model_Common) : null;                    
+                        return File.Exists(Resource.SA_Model_Common) ? await File.ReadAllBytesAsync(Resource.SA_Model_Common) : throw new FileNotFoundException();                    
                     }
                 case SentimentList.Movie:
                     {
-                        return File.Exists(Resource.SA_Model_Movie) ? await File.ReadAllBytesAsync(Resource.SA_Model_Movie) : null;
+                        return File.Exists(Resource.SA_Model_Movie) ? await File.ReadAllBytesAsync(Resource.SA_Model_Movie) : throw new FileNotFoundException();
                     }
                 case SentimentList.Shop:
                     {
-                        return File.Exists(Resource.SA_Model_Shop) ? await File.ReadAllBytesAsync(Resource.SA_Model_Shop) : null;
+                        return File.Exists(Resource.SA_Model_Shop) ? await File.ReadAllBytesAsync(Resource.SA_Model_Shop) : throw new FileNotFoundException();
                     }
                 default:
                     return null;

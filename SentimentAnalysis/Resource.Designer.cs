@@ -61,7 +61,7 @@ namespace SentimentAnalysis {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ..\SentimentAnalysis\bin\Debug\netcoreapp2.1\Model_ML.zip.
+        ///   Looks up a localized string similar to ..\SentimentAnalysis\Models\Model_ML_Common.zip.
         /// </summary>
         internal static string SA_Model_Common {
             get {
@@ -70,7 +70,7 @@ namespace SentimentAnalysis {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to ..\SentimentAnalysis\Models\Model_ML_Movie.zip.
         /// </summary>
         internal static string SA_Model_Movie {
             get {
@@ -79,7 +79,7 @@ namespace SentimentAnalysis {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to ..\SentimentAnalysis\Models\Model_ML_Shop.zip.
         /// </summary>
         internal static string SA_Model_Shop {
             get {

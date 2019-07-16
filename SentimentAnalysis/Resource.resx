@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="SA_Model_Common" xml:space="preserve">
-    <value>..\SentimentAnalysis\bin\Debug\netcoreapp2.1\Model_ML.zip</value>
+    <value>..\SentimentAnalysis\Models\Model_ML_Common.zip</value>
     <comment>The path to the Common sentiment analysis model</comment>
   </data>
   <data name="SA_Model_Movie" xml:space="preserve">
-    <value />
+    <value>..\SentimentAnalysis\Models\Model_ML_Movie.zip</value>
   </data>
   <data name="SA_Model_Shop" xml:space="preserve">
-    <value />
+    <value>..\SentimentAnalysis\Models\Model_ML_Shop.zip</value>
   </data>
 </root>

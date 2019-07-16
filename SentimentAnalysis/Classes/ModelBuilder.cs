@@ -32,9 +32,24 @@ namespace SentimentAnalysis.Classes
 
         public static void SaveModel(MLContext mLContext, ITransformer model, DataViewSchema modelInputSchema)
         {
-            mLContext.Model.Save(model, modelInputSchema, Path.Combine(Environment.CurrentDirectory , "Model_ML.zip"));
+            mLContext.Model.Save(model, modelInputSchema, FindPath());
             Console.WriteLine("<========================================================>");
             Console.WriteLine("<=== Model Saved to the current application directory ===>");
+        }
+
+        private static string FindPath()
+        {
+            var domain = AppDomain.CurrentDomain.BaseDirectory.Split(Path.DirectorySeparatorChar);
+            StringBuilder path = new StringBuilder();
+
+            for (int i = 0; i < domain.Length - 4; i++)
+            {
+                path.Append($"{domain[i]}/");
+            }
+
+            path.Append(@"Models/Model_ML_Common.zip");
+
+            return path.ToString();
         }
     }
 }
