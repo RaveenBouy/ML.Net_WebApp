@@ -18,7 +18,7 @@ namespace SentimentAnalysis.Classes
         public static ModelOutput GetSentiment(string sentiment, SentimentList value)
         {
             MLContext mlContext = new MLContext();
-            Stream modelStream = new MemoryStream(Resource.Model_ML_Common);
+            Stream modelStream = new MemoryStream(File.ReadAllBytes(@"/src/SentimentAnalysis/Models/Model_ML_Common.zip"));
 
             // Load the model
             ITransformer mlModel = mlContext.Model.Load(modelStream, out DataViewSchema inputSchema);
@@ -60,7 +60,7 @@ namespace SentimentAnalysis.Classes
             var aaa = Path.GetDirectoryName(Environment.CurrentDirectory);
 
             var files = Directory.GetFiles(@"/app");
-            var files2 = Directory.GetFiles(@"/bin");
+            var files2 = Directory.GetFiles(@"/src");
             string[] filesss = Directory.GetFiles(@"/", "Model_ML_Common.zip", SearchOption.AllDirectories);
 
 
