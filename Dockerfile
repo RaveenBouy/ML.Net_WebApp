@@ -6,9 +6,8 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
 WORKDIR /src
 COPY ["API/API.csproj", "API/"]
+COPY ["ML.DataLibrary/ML.DataLibrary.csproj", "ML.DataLibrary/"]
 COPY ["DataLibrary/API.DataLibrary.csproj", "DataLibrary/"]
-COPY ["SentimentAnalysis/SentimentAnalysis.csproj", "SentimentAnalysis/"]
-
 RUN dotnet restore "API/API.csproj"
 COPY . .
 WORKDIR "/src/API"
@@ -19,6 +18,5 @@ RUN dotnet publish "API.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
-COPY "ML.DataLibrary/Models/Model_ML_Common.zip" .
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "API.dll"]
