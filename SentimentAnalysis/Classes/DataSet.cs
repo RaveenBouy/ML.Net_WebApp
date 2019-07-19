@@ -1,5 +1,6 @@
 ﻿using Microsoft.ML;
 using SentimentAnalysis.Models;
+using SentimentAnalysisBuilder;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,11 +11,11 @@ namespace SentimentAnalysis.Classes
 {
     public class DataSet
     {
-        private static readonly string _dataListPath = Path.Combine(Environment.CurrentDirectory, "dataset.csv");
+        private static string DataListPath { get; set; }
 
         private static IDataView GetDataset(MLContext mLContext)
         {
-            return mLContext.Data.LoadFromTextFile<ModelInput>(_dataListPath, separatorChar: ',', hasHeader: true, allowQuoting: true);
+            return mLContext.Data.LoadFromTextFile<ModelInput>(DataListPath, separatorChar: ',', hasHeader: true, allowQuoting: true);
         }
 
         /// <summary>
@@ -23,11 +24,41 @@ namespace SentimentAnalysis.Classes
         /// <param name="mLContext"></param>
         /// <param name="testFraction"></param>
         /// <returns></returns>
-        public static TrainTestData GetTrainTestDataset(MLContext mLContext, double testFraction = 0.2)
+        public static TrainTestData GetTrainTestDataset(MLContext mLContext, SentimentList value, double testFraction = 0.2)
         {
+            FindPath(value);
+
             var dataView = GetDataset(mLContext);
             TrainTestData trainTest = mLContext.Data.TrainTestSplit(dataView, testFraction: testFraction);
             return trainTest;
+        }
+
+        private static void FindPath(SentimentList value)
+        {
+            string dataset = "";
+
+            switch (value)
+            {
+                case SentimentList.Common:
+                    dataset = Resource.Dataset_ML_Common;
+                    break;
+                case SentimentList.Movie:
+                    dataset = Resource.Dataset_ML_Movie;
+                    break;
+                case SentimentList.Shop:
+                    dataset = Resource.Dataset_ML_Shop;
+                    break;
+            }
+
+            var domain = AppDomain.CurrentDomain.BaseDirectory.Split(Path.DirectorySeparatorChar);
+            StringBuilder path = new StringBuilder();
+
+            for (int i = 0; i < domain.Length - 4; i++)
+            {
+                path.Append($"{domain[i]}/");
+            }
+
+            DataListPath = path.Append($@"DataSet/{dataset}").ToString();
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SentimentAnalysis {
+namespace SentimentAnalysisBuilder {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace SentimentAnalysis {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SentimentAnalysis.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SentimentAnalysisBuilder.Resource", typeof(Resource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,39 +61,56 @@ namespace SentimentAnalysis {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a localized string similar to Dataset_ML_Common.csv.
         /// </summary>
-        internal static byte[] Model_ML_Common {
+        internal static string Dataset_ML_Common {
             get {
-                object obj = ResourceManager.GetObject("Model_ML_Common", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("Dataset_ML_Common", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ..\SentimentAnalysis\Models\Model_ML_Common.zip.
+        ///   Looks up a localized string similar to Dataset_ML_Movie.csv.
         /// </summary>
-        internal static string SA_Model_Common {
+        internal static string Dataset_ML_Movie {
             get {
-                return ResourceManager.GetString("SA_Model_Common", resourceCulture);
+                return ResourceManager.GetString("Dataset_ML_Movie", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ..\SentimentAnalysis\Models\Model_ML_Movie.zip.
+        ///   Looks up a localized string similar to Dataset_ML_Shop.csv.
         /// </summary>
-        internal static string SA_Model_Movie {
+        internal static string Dataset_ML_Shop {
             get {
-                return ResourceManager.GetString("SA_Model_Movie", resourceCulture);
+                return ResourceManager.GetString("Dataset_ML_Shop", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ..\SentimentAnalysis\Models\Model_ML_Shop.zip.
+        ///   Looks up a localized string similar to Model_ML_Common.zip.
         /// </summary>
-        internal static string SA_Model_Shop {
+        internal static string Model_ML_Name_Common {
             get {
-                return ResourceManager.GetString("SA_Model_Shop", resourceCulture);
+                return ResourceManager.GetString("Model_ML_Name_Common", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model_ML_Movie.zip.
+        /// </summary>
+        internal static string Model_ML_Name_Movie {
+            get {
+                return ResourceManager.GetString("Model_ML_Name_Movie", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model_ML_Shop.zip.
+        /// </summary>
+        internal static string Model_ML_Name_Shop {
+            get {
+                return ResourceManager.GetString("Model_ML_Name_Shop", resourceCulture);
             }
         }
     }

@@ -8,6 +8,7 @@ WORKDIR /src
 COPY ["API/API.csproj", "API/"]
 COPY ["DataLibrary/API.DataLibrary.csproj", "DataLibrary/"]
 COPY ["SentimentAnalysis/SentimentAnalysis.csproj", "SentimentAnalysis/"]
+
 RUN dotnet restore "API/API.csproj"
 COPY . .
 WORKDIR "/src/API"
@@ -18,5 +19,6 @@ RUN dotnet publish "API.csproj" -c Release -o /app
 
 FROM base AS final
 WORKDIR /app
+COPY "ML.DataLibrary/Models/Model_ML_Common.zip" .
 COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "API.dll"]

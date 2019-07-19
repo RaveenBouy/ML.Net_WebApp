@@ -6,10 +6,16 @@ namespace SentimentAnalysis
 {
     class Program
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
+            var sentimentType = SentimentList.Shop;
+
             Console.WriteLine("<=============== Started Building The Model =============>");
-            ModelBuilder.CreateModel();
+            ModelBuilder.CreateModel(sentimentType);
             Console.WriteLine("<=============== Model Build is Complete ================>");
         }
     }

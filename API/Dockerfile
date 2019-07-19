@@ -6,8 +6,8 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:2.1-stretch AS build
 WORKDIR /src
 COPY ["API/API.csproj", "API/"]
+COPY ["ML.DataLibrary/ML.DataLibrary.csproj", "ML.DataLibrary/"]
 COPY ["DataLibrary/API.DataLibrary.csproj", "DataLibrary/"]
-COPY ["SentimentAnalysis/SentimentAnalysis.csproj", "SentimentAnalysis/"]
 RUN dotnet restore "API/API.csproj"
 COPY . .
 WORKDIR "/src/API"

@@ -13,20 +13,21 @@
     <None Remove="Dockerfile~RF8d591e.TMP" />
   </ItemGroup>
 
-  <ItemGroup>
+  <ItemGroup> 
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.ML" Version="1.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.7.9" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\DataLibrary\API.DataLibrary.csproj" />
-    <ProjectReference Include="..\SentimentAnalysis\SentimentAnalysis.csproj" />
+    <ProjectReference Include="..\ML.DataLibrary\ML.DataLibrary.csproj" />
   </ItemGroup>
 
 </Project>
